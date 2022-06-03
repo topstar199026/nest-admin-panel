@@ -1,0 +1,14 @@
+{
+  "sourceRoot": "libs/app/ui",
+  "projectType": "library",
+  "prefix": "ui",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/app/ui/**/*.ts"]
+      }
+    }
+  }
+}

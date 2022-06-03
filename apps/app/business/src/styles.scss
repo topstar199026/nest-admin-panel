@@ -1,0 +1,175 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import '../../../../node_modules/mdb-angular-ui-kit/assets/scss/mdb.scss';
+@import '../../../../node_modules/ng-zorro-antd/ng-zorro-antd.min.css';
+
+html,
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #514d6a;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*Table*/
+.table thead th {
+  border-bottom: 1px solid #e4e9f0;
+  outline: none !important;
+}
+.table tbody tr:first-child td {
+  border-top: none;
+}
+.table > :not(:first-child) {
+  border-top: 2px solid #e4e9f0;
+}
+.table td,
+.table th {
+  border-color: #e4e9f0;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  height: 0;
+  overflow: visible;
+}
+
+.btn {
+  border-radius: 2.01px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+//-- Temp --------------------------
+
+/*--- MDB---- */
+.form-outline .form-control {
+  min-height: 35px;
+}
+
+/*Prefilled Animation Bug*/
+.form-outline .form-control ~ .form-notch .form-notch-trailing,
+.form-outline .form-control {
+  transition: none !important;
+}
+.form-control.active ~ .form-label {
+  transition: none !important;
+}
+.form-control:focus ~ .form-label {
+  transition: transform 0.2s ease-out !important;
+}
+.form-outline .form-label {
+  transition: transform 0.2s ease-out !important;
+}
+
+/* ANT - Design */
+.mdb-multiselect {
+  .ant-select-selector {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding-top: 4px;
+  }
+  .form-label {
+    padding-top: 0.5rem;
+  }
+
+  .form-control:not(.cdk-focused) ~ .form-label,
+  .form-control:not(.has-value) ~ .form-label {
+    transform: translateY(0rem) translateY(0rem) scale(1) !important;
+  }
+  .form-control:not(.cdk-focused) ~ .form-notch .form-notch-middle,
+  .form-control:not(.has-value) ~ .form-notch .form-notch-middle {
+    border-top: solid 1px #bdbdbd !important;
+  }
+
+  .form-control.cdk-focused ~ .form-label,
+  .form-control.has-value ~ .form-label {
+    transform: translateY(-1rem) translateY(0.1rem) scale(0.8) !important;
+  }
+
+  .form-control.has-value ~ .form-notch .form-notch-middle,
+  .form-control.cdk-focused ~ .form-notch .form-notch-middle {
+    border-top: none !important;
+    border-right: none;
+    border-left: none;
+    transition: all 0.2s linear;
+  }
+}
+
+.lang_chooser_pills {
+  overflow-x: hidden;
+  nav {
+    margin-left: -0rem;
+    a {
+      cursor: pointer;
+      user-select: none;
+      background: #f0f7fc;
+
+      border-radius: 0 !important;
+      border: #c9c9c9 solid !important;
+      padding: 3px !important;
+      margin: 0 !important;
+      &.active {
+        background: rgb(69, 154, 250);
+      }
+    }
+  }
+
+  .nav-pills a:nth-of-type(1) {
+    animation-delay: 300ms;
+  }
+
+  .nav-pills a:nth-of-type(2) {
+    animation-delay: 400ms;
+  }
+
+  .nav-pills a:nth-of-type(3) {
+    animation-delay: 500ms;
+  }
+
+  .nav-pills a:nth-of-type(4) {
+    animation-delay: 600ms;
+  }
+
+  .nav-pills a:nth-of-type(5) {
+    animation-delay: 700ms;
+  }
+
+  .nav-pills a:nth-of-type(6) {
+    animation-delay: 800ms;
+  }
+
+  .nav-pills a:nth-of-type(7) {
+    animation-delay: 900ms;
+  }
+
+  .nav-pills a:nth-of-type(8) {
+    animation-delay: 1000ms;
+  }
+
+  .nav-pills a:nth-of-type(9) {
+    animation-delay: 1100ms;
+  }
+
+  .nav-pills a:nth-of-type(10) {
+    animation-delay: 1200ms;
+  }
+
+  .nav-pills a:nth-of-type(11) {
+    animation-delay: 1300ms;
+  }
+}

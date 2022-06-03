@@ -1,0 +1,116 @@
+::ng-deep {
+  .modal {
+    z-index: 10;
+    &.fade.show{
+      animation: fadein 0.5s;
+    }
+    &.full-mode {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    &-header {
+      padding-top: 0;
+      padding-bottom: 0;
+      background: black;
+      color: white;
+      height: 30px;
+
+      &-sub {
+        position: relative;
+        background: rgb(109, 131, 147);
+        margin-top: -5px;
+        max-height: 30px;
+        height: 30px;
+        overflow: hidden;
+        ul {
+          height: 100%;
+          a {
+            height: 100%;
+            display: flex;
+            align-items: center;
+          }
+        }
+        ul,
+        li {
+          background-color: transparent !important;
+          cursor: pointer;
+          user-select: initial;
+        }
+        .nav-link,
+        a {
+          color: white;
+          padding-top: 2px;
+          padding-bottom: 2px;
+          background-color: transparent !important;
+        }
+
+        select {
+          cursor: pointer;
+          user-select: none;
+          outline-color: transparent;
+          background: transparent;
+          max-width: 120px;
+          border: none;
+          color: white;
+          option {
+            color: black;
+          }
+          padding-top: 2px;
+          height: 100%;
+        }
+      }
+    }
+    &-content {
+      height: 100%;
+      border-radius: 0;
+      ::ng-deep {
+        mdb-tabs {
+          ul {
+            background: rgb(109, 131, 147);
+            height: 30px;
+            overflow: hidden;
+            a {
+              height: 100%;
+              color: white !important;
+              padding-top: 9px !important;
+              background-color: transparent !important;
+            }
+          }
+          .tab-content {
+            padding-right: 0.8rem;
+            padding-left: 0.8rem;
+          }
+        }
+      }
+      &.bg-default{
+        background: #f8fbff;
+      }
+    }
+    &-body{
+      &.bg-default{
+        background: #f8fbff;
+      }
+    }
+  }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@-o-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

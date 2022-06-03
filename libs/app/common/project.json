@@ -1,0 +1,14 @@
+{
+  "sourceRoot": "libs/app/common",
+  "projectType": "library",
+  "prefix": "common",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/app/common/**/*.ts"]
+      }
+    }
+  }
+}

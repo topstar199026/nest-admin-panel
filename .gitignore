@@ -1,0 +1,11 @@
+.idea/
+.vscode/
+node_modules/
+build/
+tmp/
+temp/
+.angular
+/docker/
+.env
+docs/local.webserver.conf
+*.locale.json

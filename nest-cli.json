@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "api-auth": {
+      "type": "library",
+      "root": "libs/api/domain/auth",
+      "entryFile": "index",
+      "sourceRoot": "libs/api/domain/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/api/domain/auth/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}

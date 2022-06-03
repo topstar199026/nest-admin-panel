@@ -1,0 +1,89 @@
+<ng-template #topbar>
+  <div class="left-box"></div>
+  <h4 class="slide">{{ 'employee' | translate }}</h4>
+</ng-template>
+
+<div class="p-4">
+  <div class="container">
+    <div class="pb-4">
+      <div class="col-12 card bg-white shadow p-3">
+        <div class="">
+          <div class="row">
+            <div class="col-12 col-md-10">
+              <mdb-form-control>
+                <i class="fa fa-search trailing"></i>
+                <input
+                  (keyup)="getEmployees()"
+                  (input)="
+                    tableEmployees.filterValues.searchValue =
+                      $event.target.value
+                  "
+                  mdbInput
+                  type="text"
+                  id="search"
+                  class="form-control"
+                />
+                <label mdbLabel class="form-label" for="search">
+                  {{ 'search' | translate }}
+                </label>
+              </mdb-form-control>
+            </div>
+            <div class="col-6 col-md-2 mt-2 mt-md-0">
+              <div class="form-group">
+                <button mdbRipple class="btn btn-success text-white w-100">
+                  {{ 'create' | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card shadow">
+      <table class="table mb-0 bg-white">
+        <thead>
+          <tr>
+            <td width="70px"></td>
+            <th></th>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Geburstag</th>
+            <th>Email</th>
+            <th>Telefon</th>
+
+            <th class="text-right pe-2" align="right">
+              <a></a>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngIf="tableEmployees.data$ | async as employeeData">
+          <ng-container *ngFor="let employee of employeeData.data">
+            <tr *ngIf="tableEmployees.canShow(employee)" class="entry-row">
+              <td width="70px">
+                <img width="50px" [src]="employee.avatar" />
+              </td>
+              <td>{{ employee.gender }}</td>
+              <td>{{ employee.firstName }}</td>
+              <td>{{ employee.lastName }}</td>
+              <td>{{ employee.birthDay | date: 'dd.MM.yy' }}</td>
+              <td>{{ employee.email }}</td>
+              <td>{{ employee.phone }}</td>
+
+              <td class="text-right pe-2" align="right">
+                <button
+                  mdbRipple
+                  [routerLink]="
+                    basePath + '/settings/employee/edit/' + employee.employeeId
+                  "
+                  class="btn btn-primary"
+                >
+                  <i class="fa fa-edit text-white"></i>
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

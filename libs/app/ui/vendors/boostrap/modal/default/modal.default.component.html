@@ -1,0 +1,18 @@
+<div
+  class="modal fade show shadow"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+  [class.full-mode]="fullMode"
+  [style]="style"
+>
+  <div [class]="dialogClass">
+    <div class="modal-content">
+      <ng-content></ng-content>
+      <ng-container #vc></ng-container>
+    </div>
+  </div>
+</div>

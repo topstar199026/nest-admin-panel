@@ -1,0 +1,66 @@
+version: '3.7'
+services:
+  movit-local-server:
+    image: nginx
+    container_name: framework-local-server
+    ports:
+      - 80:80
+    volumes:
+      - ./config/local.webserver.conf:/etc/nginx/conf.d/site.conf
+      - ./dist/apps/app/:/var/www/
+  movit-api-auth:
+    container_name: framework-api-auth
+    image: admin-framework
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: pm2-runtime start scripts/ecosystem.config.js --only api-auth
+    ports:
+      - 3001:3001
+    restart: unless-stopped
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - movit-local-server
+      - movit-mysql
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+  movit-api-business:
+    container_name: framework-api-business
+    image: admin-framework
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: pm2-runtime start scripts/ecosystem.config.js --only api-business
+    ports:
+      - 3003:3003
+    restart: unless-stopped
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - movit-local-server
+      - movit-mysql
+      - movit-api-auth
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+  movit-mysql:
+    container_name: framework-mysql
+    image: mysql
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
+    restart: always
+    ports:
+      - '3307:3306'
+    environment:
+      MYSQL_ROOT_USER: movit
+      MYSQL_USER: movit
+      MYSQL_ROOT_PASSWORD: movit@sql123
+      MYSQL_PASSWORD: movit@sql123
+      MYSQL_DATABASE: movit
+      MYSQL_ROOT_HOST: 172.*.*.*
+    volumes:
+      - movit-frameworkdb:/var/lib/mysql
+volumes:
+  movit-frameworkdb:
